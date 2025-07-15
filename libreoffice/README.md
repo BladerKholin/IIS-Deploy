@@ -112,23 +112,10 @@ Para evitar problemas con la interfaz gráfica en un servidor, configurar:
 
 ## 🧪 Pruebas de Funcionamiento
 
-### Prueba Manual desde Línea de Comandos
-
-```powershell
-# Crear un archivo de prueba (ejemplo.txt)
-"Contenido de prueba" | Out-File -FilePath "C:\temp\ejemplo.txt" -Encoding UTF8
-
-# Convertir a PDF usando LibreOffice
-& "C:\Program Files\LibreOffice\program\soffice.exe" --headless --convert-to pdf --outdir "C:\temp" "C:\temp\ejemplo.txt"
-
-# Verificar que se creó el PDF
-Test-Path "C:\temp\ejemplo.pdf"
-```
-
 ### Prueba desde el Backend
 
 1. Iniciar el backend
-2. Usar la funcionalidad de conversión de documentos de la aplicación
+2. Usar la funcionalidad de vista previa de documentos de la aplicación
 3. Verificar los logs para confirmar que no hay errores
 
 ---
@@ -160,86 +147,5 @@ icacls "C:\Program Files\LibreOffice\program\soffice.exe" /grant "Everyone:(RX)"
 2. Comprobar permisos de escritura en el directorio de salida
 3. Intentar conversión manual para descartar problemas del archivo
 
-### LibreOffice no responde o se cuelga
-
-**Soluciones:**
-1. Terminar procesos zombie de LibreOffice:
-```powershell
-Get-Process -Name "soffice*" | Stop-Process -Force
-```
-
-2. Configurar timeout en el backend para evitar procesos colgados
-
-### Error en servidor sin interfaz gráfica
-
-**Solución:**
-```powershell
-# Configurar LibreOffice para modo servidor
-[Environment]::SetEnvironmentVariable("SAL_USE_VCLPLUGIN", "svp", "Machine")
-
-# Reiniciar el servicio del backend después de este cambio
-```
-
 ---
 
-## 🔄 Actualizaciones
-
-### Mantener LibreOffice Actualizado
-
-1. Verificar actualizaciones periódicamente en [libreoffice.org](https://www.libreoffice.org)
-2. Descargar e instalar nuevas versiones LTS
-3. Verificar que la ruta en `.env` siga siendo correcta después de actualizar
-
-### Compatibilidad de Versiones
-
-- **Recomendado**: Usar siempre versiones LTS para mayor estabilidad
-- **Mínimo**: LibreOffice 7.0 o superior
-- **Tested**: Esta aplicación fue probada con LibreOffice 7.6 LTS
-
----
-
-## 📊 Monitoreo
-
-### Logs a Revisar
-
-1. **Logs del Backend**: Verificar errores relacionados con conversión
-2. **Event Viewer**: Buscar errores de LibreOffice en el sistema
-3. **Archivos Temporales**: Limpiar periódicamente archivos temporales de conversión
-
-### Métricas Importantes
-
-- Tiempo de conversión por documento
-- Tasa de éxito de conversiones
-- Uso de memoria durante conversiones
-- Procesos zombie de LibreOffice
-
----
-
-## ✅ Checklist de Instalación
-
-- [ ] LibreOffice descargado desde el sitio oficial
-- [ ] Instalación completada como Administrador
-- [ ] Ejecutable verificado en la ruta esperada
-- [ ] Variable `LIBRE_OFFICE_EXE` configurada en `.env`
-- [ ] Permisos configurados para el usuario del backend
-- [ ] Variables de entorno del sistema configuradas
-- [ ] Prueba manual de conversión exitosa
-- [ ] Prueba desde la aplicación funcionando
-- [ ] Logs del backend sin errores de LibreOffice
-
----
-
-## 🎯 Resumen de Rutas Importantes
-
-```
-Ejecutable principal:
-C:\Program Files\LibreOffice\program\soffice.exe
-
-Directorio de instalación:
-C:\Program Files\LibreOffice\
-
-Archivos temporales (limpiar periódicamente):
-C:\Users\[usuario]\AppData\Local\Temp\
-```
-
-¡Con esta configuración, LibreOffice debería funcionar correctamente para la conversión automática de documentos en tu aplicación!
