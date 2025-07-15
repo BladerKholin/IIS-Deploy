@@ -1,0 +1,9 @@
+dn: ou=TIC,dc=example,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: TIC
+
+dn: ou=OP,dc=example,dc=com
+objectClass: top
+objectClass: organizationalUnit
+ou: OP

@@ -1,0 +1,35 @@
+dn: uid=user1,ou=People,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: User One
+sn: One
+uid: user1
+uidNumber: 1001
+gidNumber: 1000
+homeDirectory: /home/user1
+userPassword: password123
+
+dn: uid=user2,ou=People,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: User Two
+sn: Two
+uid: user2
+uidNumber: 1002
+gidNumber: 1000
+homeDirectory: /home/user2
+userPassword: password123
+
+dn: uid=user4,ou=People,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: User Four
+sn: Four
+uid: user4
+uidNumber: 1004
+gidNumber: 1000
+homeDirectory: /home/user4
+userPassword: password123

@@ -1,0 +1,47 @@
+dn: uid=tic-admin1,ou=TIC,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: TIC Admin One
+sn: Admin One
+uid: tic-admin1
+uidNumber: 1001
+gidNumber: 1000
+homeDirectory: /home/tic-admin1
+userPassword: password123
+
+dn: uid=tic-user1,ou=TIC,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: TIC User One
+sn: User One
+uid: tic-user1
+uidNumber: 1002
+gidNumber: 1000
+homeDirectory: /home/tic-user1
+userPassword: password123
+
+dn: uid=op-admin1,ou=OP,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: OP Admin One
+sn: Admin One
+uid: op-admin1
+uidNumber: 1003
+gidNumber: 1000
+homeDirectory: /home/op-admin1
+userPassword: password123
+
+dn: uid=op-user1,ou=OP,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: OP User One
+sn: User One
+uid: op-user1
+uidNumber: 1004
+gidNumber: 1000
+homeDirectory: /home/op-user1
+userPassword: password123

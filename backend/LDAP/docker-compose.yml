@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  openldap:
+    image: osixia/openldap:latest
+    container_name: openldap
+    restart: always
+    environment:
+      LDAP_ORGANISATION: "Ejemplo Corp"
+      LDAP_DOMAIN: "ejemplo.com"
+      LDAP_ADMIN_PASSWORD: "admin"
+    ports:
+      - "389:389"   # Puerto estándar de LDAP
+      - "636:636"   # Puerto seguro (LDAPS)
+    volumes:
+      - ldap_data:/var/lib/ldap
+      - ldap_config:/etc/ldap/slapd.d
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin
+    restart: always
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: openldap
+      PHPLDAPADMIN_LDAP_TLS: 'false'
+    ports:
+      - "9090:80"  # Interfaz web de administración
+
+volumes:
+  ldap_data:
+  ldap_config:

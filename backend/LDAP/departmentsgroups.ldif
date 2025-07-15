@@ -1,0 +1,23 @@
+dn: cn=TIC-Admins,ou=TIC,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: TIC-Admins
+member: uid=tic-admin1,ou=TIC,dc=example,dc=com
+
+dn: cn=TIC-Users,ou=TIC,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: TIC-Users
+member: uid=tic-user1,ou=TIC,dc=example,dc=com
+
+dn: cn=OP-Admins,ou=OP,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: OP-Admins
+member: uid=op-admin1,ou=OP,dc=example,dc=com
+
+dn: cn=OP-Users,ou=OP,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: OP-Users
+member: uid=op-user1,ou=OP,dc=example,dc=com

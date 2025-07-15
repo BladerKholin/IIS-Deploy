@@ -1,0 +1,100 @@
+# Base domain
+dn: dc=example,dc=com
+objectClass: top
+objectClass: domain
+dc: example
+
+# Organizational Units
+dn: ou=TIC,dc=example,dc=com
+objectClass: organizationalUnit
+ou: TIC
+description: Technology and Innovation Center uwu
+
+dn: ou=OOPP,dc=example,dc=com
+objectClass: organizationalUnit
+ou: OOPP
+description: Operations and Outstanding People Place (≧◡≦)
+
+# TIC Groups
+dn: cn=TIC-Admins,ou=TIC,dc=example,dc=com
+objectClass: groupOfNames
+cn: TIC-Admins
+member: uid=tic-admin1,ou=TIC,dc=example,dc=com
+description: Super techy admins (づ｡◕‿‿◕｡)づ
+
+dn: cn=TIC-Users,ou=TIC,dc=example,dc=com
+objectClass: groupOfNames
+cn: TIC-Users
+member: uid=tic-user1,ou=TIC,dc=example,dc=com
+description: Techy users ~(˘▾˘~)
+
+# OOPP Groups
+dn: cn=OOPP-Admins,ou=OOPP,dc=example,dc=com
+objectClass: groupOfNames
+cn: OOPP-Admins
+member: uid=op-admin1,ou=OOPP,dc=example,dc=com
+description: Operational excellence leaders (•̀ᴗ•́)و
+
+dn: cn=OOPP-Users,ou=OOPP,dc=example,dc=com
+objectClass: groupOfNames
+cn: OOPP-Users
+member: uid=op-user1,ou=OOPP,dc=example,dc=com
+description: Amazing operational people ヽ(・∀・)ﾉ
+
+# TIC Users
+dn: uid=tic-admin1,ou=TIC,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: TIC Admin One
+sn: One
+uid: tic-admin1
+uidNumber: 1001
+gidNumber: 1000
+homeDirectory: /home/tic-admin1
+userPassword: password123
+mail: tic-admin1@example.com
+description: The first admin of TIC (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+
+dn: uid=tic-user1,ou=TIC,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: TIC User One
+sn: One
+uid: tic-user1
+uidNumber: 1002
+gidNumber: 1000
+homeDirectory: /home/tic-user1
+userPassword: password123
+mail: tic-user1@example.com
+description: First user of TIC ʕ•ᴥ•ʔ
+
+# OOPP Users
+dn: uid=op-admin1,ou=OOPP,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: OOPP Admin One
+sn: One
+uid: op-admin1
+uidNumber: 1003
+gidNumber: 1000
+homeDirectory: /home/op-admin1
+userPassword: password123
+mail: op-admin1@example.com
+description: First admin of OOPP (ง •̀_•́)ง
+
+dn: uid=op-user1,ou=OOPP,dc=example,dc=com
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: top
+cn: OOPP User One
+sn: One
+uid: op-user1
+uidNumber: 1004
+gidNumber: 1000
+homeDirectory: /home/op-user1
+userPassword: password123
+mail: op-user1@example.com
+description: First user of OOPP (づ￣ ³￣)づ
